@@ -1,0 +1,59 @@
+// Timebase 25 frames per s, duration about 35 s
+// Set up initial state
+At frame 0:
+- change all channels' intensity to (1.0, 100.0, 1.0)
+- change all channels' alpha to (1.0, 100, 2.0)
+- change channel 1 color to (255.0, 0.0, 0.0)
+- change channel 2 color to (0.0, 255.0, 255.0)
+- change channel 1 weight to 1.0
+- change channel 2 weight to 0.0
+- change rendering algorithm to independent transparency
+- change background color to (0.0, 0.0, 0.0)
+- change all channels' front/back clipping to (-808, 808)
+- reset transformation 
+- rotate by -5 degrees around (0, 1, 0)
+- change bounding box visibility to off
+- change scalebar length to 250
+- change scalebar width to 4
+- change scalebar visibility to on
+
+// overview: rotate and see channels
+From frame 0 to frame 125:
+- rotate by 360 degrees horizontally ease-out 
+- change channel 2 weight to 1.0
+- change channel 1 weight to 0.0
+
+At frame 126:
+- change all channels' weight to 1.0
+
+// Zoom-in
+From frame 127 to frame 250:
+- zoom by a factor of 6.0 ease-in
+- translate by (24064.0, -8234.9, 0.0) ease-in
+
+// Scroll through planes. 
+// Diff. betw front/back clipping pl should be at least z-step, eg 10 (um)
+From frame 251 to frame 300:
+- change all channels' front/back clipping to (-290, -280) ease-in-out 
+From frame 300 to frame 600:
+- change all channels' front/back clipping to (270, 280) 
+
+From frame 601 to frame 650:
+- change all channels' front/back clipping to (-300, 300) 
+
+// Reset to low-zoom and full-range clipping
+// zoom factor is relative to current zoom, translation must be scaled by the zoom.
+From frame 650 to frame 700:
+- change all channels' front/back clipping to (-808, 808)
+- zoom by a factor of 0.16666 ease-in-out 
+- translate by (-4010, 1372, 0) ease-in-out
+- rotate by -90 degrees vertically 
+- rotate by 180 degrees horizontally 
+
+// Fin: sequential dimming of channels
+From frame 700 to frame 750:
+- change channel 2 weight to 0 
+From frame 750 to frame 800:
+- change channel 1 weight to 0 ease-in 
+- change scalebar visibility to off
+
